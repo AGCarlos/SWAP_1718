@@ -1,1 +1,4 @@
-## Memoria Práctica 1 SWAP
+# Memoria Práctica 1
+## Github, Markdown y Ubuntu Server
+
+Memoria
