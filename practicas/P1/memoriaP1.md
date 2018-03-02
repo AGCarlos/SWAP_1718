@@ -67,7 +67,7 @@ Para poder conectarnos a las máquinas vistuales vamos a realizarlo con ssh.
     ssh-copy-id root@IPserver
 ```
 
-Con esto nos evitamos escribir la contraseña cada vez qu establecemos una conexión
+Con esto nos evitamos escribir la contraseña cada vez que establecemos una conexión
 
 4. Accedemos a la otra máquina:
 
