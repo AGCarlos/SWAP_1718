@@ -23,4 +23,4 @@ Acceder desde la máquina anfitrión a una máquina
 
 ![Captura de curl](./CapturaCurl.PNG)    
 
-Esta práctica la he hecho en pareja con **Fernando Talavera Mendoza**
+Esta práctica la he hecho en pareja con [**Fernando Talavera Mendoza**](https://github.com/Thejokeri/SWAP-2017-2018)
