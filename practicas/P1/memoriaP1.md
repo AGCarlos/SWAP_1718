@@ -7,12 +7,12 @@ acceso por SSH entre ambas máquinas).
 Específicamente, hay que llevar a cabo las siguientes tareas:
 1. Acceder por ssh de una máquina a otra  
 `ssh root@direccionIPserver`  
-![Captura de ssh1](./CapturaSSH1.png)
+![Captura de ssh1](./CapturaSSH1.PNG)
 
     1.1 Acceder desde la máquina anfitrión a una máquina  
     `ssh root@direccionIPserver`  
-    ![Captura de ssh2](./CapturaSSH2.png)
+    ![Captura de ssh2](./CapturaSSH2.PNG)
 
 2. Acceder mediante la herramienta curl desde una máquina a la otra  
 `curl http://direccionIPserver/hola.html`  
-![Captura de curl](./CapturaCurl.png)
+![Captura de curl](./CapturaCurl.PNG)
