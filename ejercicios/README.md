@@ -1,6 +1,6 @@
 # Ejercicios SWAP
 ## Carlos Ariza García  
-Aquí se encuentran los ejercicios realionados a cada tema:  
+Aquí se encuentran los ejercicios relacionados a cada tema:  
 
 Tema 2. Alta disponibilidad y escalabilidad.
 
