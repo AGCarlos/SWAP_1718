@@ -1,7 +1,7 @@
 # Prácticas SWAP
 ## Carlos Ariza García  
 
-Práctica 1. Preparación de las herramientas.
+[Práctica 1. Preparación de las herramientas.] (https://github.com/AGCarlos/Swap_1718_CAG/blob/master/practicas/P1/memoriaP1.md)
 
 Práctica 2. Clonar la información entre servidores.
 
