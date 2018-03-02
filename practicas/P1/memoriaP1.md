@@ -9,13 +9,13 @@ Específicamente, hay que llevar a cabo las siguientes tareas:
 
 `ssh root@direccionIPserver`    
 
-![Captura de ssh1](./CapturaSSH1.PNG)
+![Captura de ssh1](./CapturaSSH2.PNG)
 
 Acceder desde la máquina anfitrión a una máquina  
 
 `ssh root@direccionIPserver`    
 
-![Captura de ssh2](./CapturaSSH2.PNG)
+![Captura de ssh2](./CapturaSSH1.PNG)
 
 2. Acceder mediante la herramienta curl desde una máquina a la otra   
 
