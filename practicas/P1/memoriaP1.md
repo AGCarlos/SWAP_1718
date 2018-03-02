@@ -11,7 +11,7 @@ Específicamente, hay que llevar a cabo las siguientes tareas:
 
 ![Captura de ssh1](./CapturaSSH1.PNG)
 
-    1.1 Acceder desde la máquina anfitrión a una máquina  
+Acceder desde la máquina anfitrión a una máquina  
 
 `ssh root@direccionIPserver`    
 
