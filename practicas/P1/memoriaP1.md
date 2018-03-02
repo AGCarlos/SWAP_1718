@@ -21,4 +21,5 @@ Acceder desde la máquina anfitrión a una máquina
 
 `curl http://direccionIPserver/hola.html`    
 
-![Captura de curl](./CapturaCurl.PNG)
+![Captura de curl](./CapturaCurl.PNG)  
+Esta práctica la he hecho en pareja con Fernando Talavera Mendoza
