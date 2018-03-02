@@ -2,7 +2,7 @@
 ## Carlos Ariza García  
 Aquí se encuentran los ejercicios relacionados a cada tema:  
 
-Tema 2. Alta disponibilidad y escalabilidad.
+[Tema 2. Alta disponibilidad y escalabilidad.](https://github.com/AGCarlos/SWAP_1718/blob/master/ejercicios/e2.md)
 
 Tema 3. La red de una granja web.
 
