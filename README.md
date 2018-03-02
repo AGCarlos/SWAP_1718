@@ -1,3 +1,6 @@
 # Servidores Web de Altas Prestaciones 2017-2018
 ## Carlos Ariza García
-En este repositorio se encuentran mis ejercicios de clase, prácticas y trabajo de la asignatura
+En este repositorio se encuentran:
+- Ejercicios de clase
+- [Prácticas](https://github.com/AGCarlos/Swap_1718_CAG/tree/master/practicas)
+- Trabajo de la asignatura
