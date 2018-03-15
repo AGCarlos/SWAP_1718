@@ -26,13 +26,13 @@ Realizamos la copia de archivos mediate rsync:
 ```
   sudo chown usuario:usuario –R /var/www
 ```  
-![CapturaRsync](./imagenes/CapturaRsync.png)
+![CapturaRsync](./imagenes/CapturaRsync.PNG)
 3. Configuración de ssh para acceder sin que solicite contraseña  
 
 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas  
 Para esta tarea se añade al final del archivo crontab lo siguiente:  
  `00 * * * * root rsync -avz -e ssh ipmaquina:/var/www/ /var/www/`  
- ![CapturaCron](./imagenes/CapturaCron.png)
+ ![CapturaCron](./imagenes/CapturaCron.PNG)
 Como resultado de la práctica 2 se mostrará al profesor el funcionamiento del proceso automático de clonado de la información. En el documento a entregar se describirá cómo se ha realizado la configuración de ambas máquinas y del software.
 
 - - -
