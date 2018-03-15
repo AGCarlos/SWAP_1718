@@ -15,7 +15,7 @@ Hay que llevar a cabo las siguientes tareas:
 1. Probar el funcionamiento de la copia de archivos por ssh  
 Utilizamos ssh en conjunto con tar para hacer copias de archivos mediante ssh:
 ```
-tar czf - directorio | ssh equipodestino 'cat > ~/tar.tgz'
+  tar czf - directorio | ssh equipodestino 'cat > ~/tar.tgz'
 ```
 2. Clonado de una carpeta entre las dos máquinas  
 Realizamos la copia de archivos mediate rsync:  
@@ -29,11 +29,14 @@ Realizamos la copia de archivos mediate rsync:
 ![CapturaRsync](./imagenes/CapturaRsync.PNG)  
 
 3. Configuración de ssh para acceder sin que solicite contraseña  
- 
+
 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas  
-Para esta tarea se añade al final del archivo crontab lo siguiente:  
- `00 * * * * root rsync -avz -e ssh ipmaquina:/var/www/ /var/www/`  
- ![CapturaCron](./imagenes/CapturaCron.PNG)
+Para esta tarea se añade al final del archivo crontab lo siguiente:    
+
+ `00 * * * * root rsync -avz -e ssh ipmaquina:/var/www/ /var/www/`    
+
+ ![CapturaCron](./imagenes/CapturaCron.PNG)  
+ 
 Como resultado de la práctica 2 se mostrará al profesor el funcionamiento del proceso automático de clonado de la información. En el documento a entregar se describirá cómo se ha realizado la configuración de ambas máquinas y del software.
 
 - - -
