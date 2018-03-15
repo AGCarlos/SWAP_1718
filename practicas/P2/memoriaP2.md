@@ -33,10 +33,12 @@ Realizamos la copia de archivos mediate rsync:
 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas  
 Para esta tarea se añade al final del archivo crontab lo siguiente:    
 
- `00 * * * * root rsync -avz -e ssh ipmaquina:/var/www/ /var/www/`    
+ `00 * * * * root rsync -avz -e ssh ipmaquina:/var/www/ /var/www/`      
+ 
+ Como resultado se copia el directorio /var/www en la segunda máquina a las 00 de cada hora:  
 
  ![CapturaCron](./imagenes/CapturaCron.PNG)  
- 
+
 Como resultado de la práctica 2 se mostrará al profesor el funcionamiento del proceso automático de clonado de la información. En el documento a entregar se describirá cómo se ha realizado la configuración de ambas máquinas y del software.
 
 - - -
