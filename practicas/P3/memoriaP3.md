@@ -1,4 +1,4 @@
-# Práctica 2. Clonar la información de un sitio webs
+# Práctica 3. Balanceo de carga
 
 ## Objetivos de la práctica
 En esta práctica configuraremos una red entre varias máquinas de forma que tengamos un balanceador que reparta la carga entre varios servidores finales.  
@@ -55,10 +55,12 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
   ```  
   Comprobamos que el balanceo de carga funciona con el comando cURL:  
   ```
-  curl http://192.56.1.8
-  curl http://172.56.1.9
+  curl http://127.0.0.1
+  curl http://127.0.0.1
   ```
-  Al lanzar este comando nos muestra el index de una máquina seguido del index de la siguiente página, por lo que el balanceo esta funcionando.   
+  Al lanzar este comando nos muestra el index de una máquina seguido del index de la siguiente página, por lo que el balanceo esta funcionando:  
+
+  ![Captura Nginx](./imagenes/CapturaNginx.png)   
 
   Si queremos que todas las peticiones que vengan de la misma IP se dirijan a la misma máquina debemos añadir al archivo de configuración la opcion ip_hash en el apartado de upstream apaches.    
 
