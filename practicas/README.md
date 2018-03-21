@@ -5,7 +5,7 @@
 
 [Práctica 2. Clonar la información entre servidores.](https://github.com/AGCarlos/SWAP_1718/blob/master/practicas/P2/memoriaP2.md)
 
-Práctica 3. Balanceo de carga y rendimiento de una granja web.
+[Práctica 3. Balanceo de carga y rendimiento de una granja web.](https://github.com/AGCarlos/SWAP_1718/blob/master/practicas/P3/memoriaP3.md)
 
 Práctica 4. Asegurar la granja web.
 
