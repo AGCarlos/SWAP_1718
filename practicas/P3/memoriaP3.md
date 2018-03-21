@@ -74,7 +74,7 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
 
   Sometemos a la granja web, primero con el balanceador Nginx, a una carga simulada con Apache Benchmark, obteniendo estos resultados:   
   ```
-  ab -n 1000 -c 10 http://192.168.2.121/index.html
+  ab -n 1000 -c 10 http://192.168.56.10/index.html
   ```
 
   ![Captura BenchNginx](./imagenes/CapturaBenchmarkNginx.PNG)  
