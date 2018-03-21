@@ -69,10 +69,13 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
 2. **Configurar una máquina e instalar el haproxy como balanceador de carga**  
 
   Parte 2  
-  
+
 3. **Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.**  
 
-  Sometemos a la granja web, primero con el balanceador Nginx, a una carga simulada con Apache Benchmark, obteniendo estos resultados:  
+  Sometemos a la granja web, primero con el balanceador Nginx, a una carga simulada con Apache Benchmark, obteniendo estos resultados:   
+  ```
+  ab -n 1000 -c 10 http://192.168.2.121/index.html
+  ```
 
   ![Captura BenchNginx](./imagenes/CapturaBenchmarkNginx.PNG)  
 
