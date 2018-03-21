@@ -84,3 +84,10 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
   ![Captura BenchHaproxy](./imagenes/CapturaBenchmarkHaproxy.PNG)  
 
   Comparando los resultados podemos observar que el balanceador HaProxy obtiene mejores resultados en tiempo que Nginx.
+
+  - - -
+  # Grupo
+
+  | [![Fernando Talavera Mendoza](https://github.com/Thejokeri.png?size=100)](https://github.com/Thejokeri) | [![Carlos Ariza García](https://github.com/AGCarlos.png?size=100)](https://github.com/AGCarlos) |
+  | :---: | :---: |
+  | [Fernando Talavera Mendoza](https://github.com/Thejokeri) | [Carlos Ariza García](https://github.com/AGCarlos) |
