@@ -60,7 +60,7 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
   ```
   Al lanzar este comando nos muestra el index de una máquina seguido del index de la siguiente página, por lo que el balanceo esta funcionando:  
 
-  ![Captura Nginx](./imagenes/CapturaNginx.png)   
+  ![Captura Nginx](./imagenes/CapturaNginx.PNG)   
 
   Si queremos que todas las peticiones que vengan de la misma IP se dirijan a la misma máquina debemos añadir al archivo de configuración la opcion ip_hash en el apartado de upstream apaches.    
 
