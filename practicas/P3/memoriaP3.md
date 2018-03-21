@@ -78,3 +78,5 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
   Posteriormente sometemos a la granja web con el balanceador Haproxy, a una carga simulada con Apache Benchmark, obteniendo estos resultados:   
 
   ![Captura BenchHaproxy](./imagenes/CapturaBenchmarkHaproxy.PNG)  
+
+  Comparando los resultados podemos observar que el balanceador HaProxy obtiene mejores resultados en tiempo que Nginx.
