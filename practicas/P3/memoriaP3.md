@@ -17,46 +17,46 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
 
   Actualizamos el sistema:
   ```
-  sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get
-  autoremove
+    sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove
   ```
   Instalamos e iniciamos nginx:
   ```
-  sudo apt-get install nginx
-  sudo systemctl start nginx
+    sudo apt-get install nginx
+    sudo systemctl start nginx
   ```  
   Modificamos el fichero de configuración de nginx (/etc/nginx/conf.d/default.conf):
 
-  ```
+  ```script
   upstream apaches {
-  server 172.16.168.130;
-  server 172.16.168.131;
+    server 172.16.168.130;
+    server 172.16.168.131;
   }
   server{
-  listen 80;
-  server_name balanceador;
-  access_log /var/log/nginx/balanceador.access.log;
-  error_log /var/log/nginx/balanceador.error.log;
-  root /var/www/;
-  location /
-  {
-  proxy_pass http://apaches;
-  proxy_set_header Host $host;
-  proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  proxy_http_version 1.1;
-  proxy_set_header Connection "";
-  }
+    listen 80;
+    server_name balanceador;
+    access_log /var/log/nginx/balanceador.access.log;
+    error_log /var/log/nginx/balanceador.error.log;
+    root /var/www/;
+    location /
+    {
+        proxy_pass http://apaches;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+    }
   }
   ```  
+
   Iniciamos nginx:  
   ```
-  sudo systemctl start nginx
+    sudo systemctl start nginx
   ```  
   Comprobamos que el balanceo de carga funciona con el comando cURL:  
   ```
-  curl http://127.0.0.1
-  curl http://127.0.0.1
+    curl http://127.0.0.1
+    curl http://127.0.0.1
   ```
   Al lanzar este comando nos muestra el index de una máquina seguido del index de la siguiente página, por lo que el balanceo esta funcionando:  
 
@@ -68,13 +68,45 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
 
 2. **Configurar una máquina e instalar el haproxy como balanceador de carga**  
 
-  Parte 2  
+  En primer lugar, instalamos haproxy en nuestra máquina balanceadora:
+
+   ```
+    apt-get install haproxy
+   ```
+  Una vez instalado, configuramos el archivo `/etc/haproxy/haproxy.cfg` añadiendo lo siguiente:
+
+  ```script
+  global
+    daemon
+    maxconn 256
+  defaults
+    mode http
+    contimeout 4000
+    clitimeout 42000
+    srvtimeout 43000
+  frontend http-in
+    bind *:80
+    default_backend servers
+  backend servers
+    server m1 ip_maquina1:80 maxconn 32
+    server m2 ip_maquina2:80 maxconn 32
+  ```
+  Una configurado el haproxy, lanzamos el haproxy mediante el comando:
+
+  ```
+    sudo /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
+  ```
+  (Aparecen warnings por algunas líneas por que están obsoletas).
+
+Probamos el balanceador:
+
+![Captura Haproxy](./imagenes/CapturaHaproxy.png)
 
 3. **Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.**  
 
   Sometemos a la granja web, primero con el balanceador Nginx, a una carga simulada con Apache Benchmark, obteniendo estos resultados:   
   ```
-  ab -n 1000 -c 10 http://192.168.56.10/index.html
+    ab -n 1000 -c 10 http://IP/index.html
   ```
 
   ![Captura BenchNginx](./imagenes/CapturaBenchmarkNginx.PNG)  
@@ -85,6 +117,48 @@ En esta práctica se llevarán a cabo, como mínimo, las siguientes tareas:
 
   Comparando los resultados podemos observar que el balanceador HaProxy obtiene mejores resultados en tiempo que Nginx.
 
+### Ejercicio adicional
+
+4. **Configuración de Pound en el balanceador**
+
+  Instalamos Pound:
+
+  ```
+    apt-get install pound
+  ```
+
+  Modificamos el archivo `/etc/pound/pound.cfg` añadiendo lo siguiente:
+
+  ```script
+    ListenHTTP
+	    Address IP_balance
+	    Port	80
+
+	    ## allow PUT and DELETE also (by default only GET, POST and HEAD)?:
+	    xHTTP		0
+
+	  Service
+		  BackEnd
+			  Address	ip_maquina1
+			  Port	80
+		  End
+		  BackEnd
+			  Address ip_maquina2
+			  Port	80
+		  End
+	  End
+  End
+  ```
+
+  Introducimos el siguiente comando:
+
+  ```
+    sed -i -e "s/^startup=0/startup=1/" /etc/default/pound
+  ```
+
+  Y lo probamos:
+
+  ![Captura Pound](./imagenes/CapturaPound.png)
   - - -
   # Grupo
 
