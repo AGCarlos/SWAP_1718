@@ -217,8 +217,7 @@ mysql> SHOW SLAVE STATUS\G
 
 Y comprobamos que la variable "Seconds_Behind_Master" está a 0, lo que nos indica que todo está bien:
 
-![capturaSBM](./imagenes/capturaSBM1.jpg)
-![capturaSBM](./imagenes/capturaSBM2.jpg)
+![capturaSBM](./imagenes/capturaSMB.jpg)
 
 Vemos cómo se replica la información.
 
