@@ -68,7 +68,7 @@ mysql> insert into datos(nombre,tlf) values ("Alex",95834988);
 mysql> insert into datos(nombre,tlf) values ("Lenadro",95834989);
 ```
 Mostramos la tabla con los nuevos datos:  
-[datosTabla](./imagenes/capturaBaseDeDatos.jpg)
+![datosTabla](./imagenes/capturaBaseDeDatos.jpg)
 
 **2. Realizar la copia de seguridad de la BD completa usando mysqldump en la máquina principal y copiar el archivo de copia de seguridad a la máquina secundaria.**     
 
@@ -92,7 +92,7 @@ Ahora vamos a la máquina 2 para copiar el archivo .SQL con todos los datos salv
 ```
 scp maquina1:/tmp/contactos.sql /tmp/
 ```
-[copiaBD](./imagenes/capturaBDCopia.jpg)  
+![copiaBD](./imagenes/capturaBDCopia.jpg)  
 
 **3. Restaurar dicha copia de seguridad en la segunda máquina (clonado manual de la BD), de forma que en ambas máquinas esté esa BD de forma idéntica.**   
 
@@ -108,13 +108,13 @@ mysql -u root -p ejemplodb < /tmp/ejemplodb.sql
 ```
   Aquí observamos la base de datos de la máquina 1 en la máquina 2:  
 
-[BDRestaurada](./imagenes/capturaBDRestaurada.jpg)  
+![BDRestaurada](./imagenes/capturaBDRestaurada.jpg)  
 
 **4. Realizar la configuración maestro-esclavo de los servidores MySQL para que la replicación de datos se realice automáticamente.**    
 
 En esta captura apreciamos que la versión de ambos es igual  
 
-[capturaVersion](./imagenes/CapturaMysqlversion.png)  
+![capturaVersion](./imagenes/CapturaMysqlversion.png)  
 Para realizar esta configuración iniciamos modificando la configuración del maestro en el archivo ``/etc/mysql/mysql.conf.d/mysqld.cnf``:  
 
 Se comenta el parámetro bind-address que sirve para que escuche a un servidor:  
@@ -139,7 +139,7 @@ Guardamos el documento y reiniciamos el servicio:
 
 El archivo quedaría de la siguiente manera:   
 
-[capturaArchivo](./imagenes/.png)
+![capturaArchivo](./imagenes/.png)
 
 *Adicionalmente, y como tarea opcional para conseguir una mayor nota en esta
 práctica, se propone realizar la configuración maestro-maestro entre las dos máquinas
