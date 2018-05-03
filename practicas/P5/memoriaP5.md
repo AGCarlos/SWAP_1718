@@ -206,3 +206,12 @@ máquinas principal y secundaria (configuración maestro-esclavo y/o maestro-mae
 en su caso). En el documento de texto a entregar se describirá en detalle cómo se ha
 realizado la configuración de ambos servidores (configuraciones y comandos de
 terminal ejecutados en cada momento).
+
+- - -
+
+# Grupo
+
+
+  | [![Fernando Talavera Mendoza](https://github.com/Thejokeri.png?size=100)](https://github.com/Thejokeri) | [![Carlos Ariza García](https://github.com/AGCarlos.png?size=100)](https://github.com/AGCarlos) |
+  | :---: | :---: |
+  | [Fernando Talavera Mendoza](https://github.com/Thejokeri) | [Carlos Ariza García](https://github.com/AGCarlos) |
