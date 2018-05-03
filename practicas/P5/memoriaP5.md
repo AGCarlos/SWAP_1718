@@ -135,11 +135,66 @@ Establecemos también donde guardar el registro binario, que es un formato más 
 
 Guardamos el documento y reiniciamos el servicio:  
 
+``/etc/init.d/mysql restart``  
+Ahora pasamos a la configuración del esclavo en la segunda máquina, para ello, realizamos las mismas modificaciones salvo que en el campo ID indicaremos 2: `` server-id = 2 ``    
+
+Sólo si estamos en versiones de mysql inferiores a la 5.5 deberemos indicar estos datos relativos al master en el archivo de configuración:  
+```
+Master-host = ipMaestro
+Master-user = usuariosDB
+Master-password = contraseñaMaestro
+ ```    
+Finalmente reiniciamos el servicio en el esclavo:  
+
 ``/etc/init.d/mysql restart``    
 
-El archivo quedaría de la siguiente manera:   
+Una vez hecho esto creamos un usuario y le damos permisos de acceso para la replicación. Dentro de mySQL ejecutamos lo siguiente:
+```  
+mysql> CREATE USER esclavo IDENTIFIED BY 'esclavo';
+mysql> GRANT REPLICATION SLAVE ON *.* TO 'esclavo'@'%'
+IDENTIFIED BY 'esclavo';
+mysql> FLUSH PRIVILEGES;
+mysql> FLUSH TABLES;
+mysql> FLUSH TABLES WITH READ LOCK;
+```  
+Con la siguiente orden ``mysql> SHOW MASTER STATUS;`` obtenemos los datos de la BD que necesitaremos para configurar el esclavo.    
 
-![capturaArchivo](./imagenes/.png)
+![capturaMasterStatus](./imagenes/capturaMasterStatus.jpg)    
+
+Ahora en la máquina esclava (máquina 2), entramos en mysql y le introducimos los datos del maestro obtenidos anteriormente:  
+```
+mysql> CHANGE MASTER TO MASTER_HOST='192.168.31.200',
+MASTER_USER='esclavo', MASTER_PASSWORD='esclavo',
+MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=501,
+MASTER_PORT=3306;
+```  
+Cómo la versión de mySQL es superior a la 5.5, se ha realizado de esta manera, si no se pueden introducir los datos en el archivo de configuración.   
+
+Por último arrancamos el esclavo con lo que concluiríamos la configuración de la réplica entre las dos máquinas:    
+
+``mysql> START SLAVE;``  
+
+Como antes bloqueamos las tablas, volvemos al maestro y volvemos a activarlas para que puedan meterse nuevos datos en el maestro:
+```
+mysql> UNLOCK TABLES;
+```
+
+Para asegurarnos que todos esta bien realizamos:
+```
+mysql> SHOW SLAVE STATUS\G
+```
+Y comprobamos que la variable "Seconds_Behind_Master" está a 0, lo que nos indica que todo está bien:  
+
+![capturaSBM](./imagenes/capturaSBM1.jpg)
+![capturaSBM](./imagenes/capturaSBM2.jpg)
+
+Vemos cómo se replica la información.
+
+Aquí se muestra la primera máquina:
+![capturaReplica](./imagenes/capturaReplica1.jpg)
+
+Aquí se muestra la máquina esclava:
+![capturaReplica](./imagenes/capturaReplica2.jpg)
 
 *Adicionalmente, y como tarea opcional para conseguir una mayor nota en esta
 práctica, se propone realizar la configuración maestro-maestro entre las dos máquinas
